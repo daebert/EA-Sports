@@ -11,11 +11,11 @@ export function createCharacterDetails({
   return createElement("article", {
     className: "character-details",
     children: [
-      createElement("h2", { innertext: lastName }),
-      createElement("p", { innertext: position }),
-      createElement("p", { innertext: height }),
-      createElement("p", { innertext: weight }),
-      createElement("p", { innertext: age }),
+      createElement("h2", { innerText: lastName }),
+      createElement("p", { innerText: position }),
+      createElement("p", { innerText: height }),
+      createElement("p", { innerText: weight }),
+      createElement("p", { innerText: age }),
     ],
   });
 }
