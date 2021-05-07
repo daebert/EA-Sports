@@ -1,6 +1,28 @@
 import "./style.css";
+import { createElement } from "./utils/elements";
 
-document.querySelector("#app").innerHTML = `<h1>Hello Vite!</h1>
-<a href="https://vitejs.dev/guide/features.html" target="_blank">
-  Documentation
-</a>`;
+const mainElement = createElement("main", {
+  className: "main",
+  children: [
+    createElement("h1", {
+      className: "headline",
+      innerText: "Player overview!",
+    }),
+    createElement("section", {
+      className: "searchbar",
+      innerText: "Search Bar",
+    }),
+    createElement("section", {
+      innerText: "Here are the players!",
+      className: "char-section",
+      children: [
+        createElement("section", {
+          innerText: "Character Section, character level",
+          className: "char-card",
+        }),
+      ],
+    }),
+  ],
+});
+
+document.querySelector("#app").append(mainElement);
