@@ -1,5 +1,12 @@
 import "./style.css";
 import { createElement } from "./utils/elements";
+import { createCharacterElement } from "./components/character";
+import { getCharacters } from "./utils/api";
+import { removeAllChildren } from "./utils/elements";
+
+const characterSection = createElement("section", {
+  className: "characters",
+});
 
 const mainElement = createElement("main", {
   className: "main",
@@ -8,21 +15,28 @@ const mainElement = createElement("main", {
       className: "headline",
       innerText: "Player overview!",
     }),
-    createElement("section", {
+
+    createElement("input", {
+      placeholder: "Type in ID",
       className: "searchbar",
-      innerText: "Search Bar",
+      oninput: (event) => {
+        removeAllChildren(characterSection);
+        const search = event.target.value;
+        getCharacters(search).then((characters) => {
+          const characterElements = characters.map(createCharacterElement);
+          characterSection.append(...characterElements);
+        });
+      },
     }),
-    createElement("section", {
-      innerText: "Here are the players!",
-      className: "char-section",
-      children: [
-        createElement("section", {
-          innerText: "Character Section, character level",
-          className: "char-card",
-        }),
-      ],
-    }),
+
+    characterSection,
   ],
 });
 
 document.querySelector("#app").append(mainElement);
+
+// createElement("section", {
+//   innerText: "Here are the players!",
+//   className: "char-section",
+//   createCharacterElement() {},
+// }),

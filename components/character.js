@@ -1,15 +1,21 @@
 import "./character.css";
 import { createElement } from "../utils/elements.js";
 
-export function createCharacterElement() {
+export function createCharacterElement({
+  lastName,
+  position,
+  height,
+  weight,
+  age,
+}) {
   return createElement("div", {
     className: "character-card",
     children: [
-      createElement("h2", { innerText: "Christian" }),
-      createElement("p", { innerText: "Tor" }),
-      createElement("p", { innerText: "1,98" }),
-      createElement("p", { innerText: "85" }),
-      createElement("p", { innerText: "36" }),
+      createElement("h2", { innerText: lastName }),
+      createElement("p", { innerText: position }),
+      createElement("p", { innerText: height }),
+      createElement("p", { innerText: weight }),
+      createElement("p", { innerText: age }),
     ],
   });
 }
