@@ -4,7 +4,7 @@ import { createElement } from "../utils/elements.js";
 export function createCharacterElement({
   id,
   lastName,
-  position,
+  positionFull,
   height,
   weight,
   age,
@@ -16,7 +16,7 @@ export function createCharacterElement({
         className: "character-card",
         children: [
           createElement("h2", { innerText: lastName }),
-          createElement("p", { innerText: position }),
+          createElement("p", { innerText: positionFull }),
           createElement("p", { innerText: height }),
           createElement("p", { innerText: weight }),
           createElement("p", { innerText: age }),
